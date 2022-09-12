@@ -1,4 +1,3 @@
-virtualenv
 jupyter
 ipykernel
 
@@ -7,6 +6,7 @@ nltk
 gensim
 networkx
 scikit-learn
+pyarrow
 
 matplotlib
 seaborn
