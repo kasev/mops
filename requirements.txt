@@ -9,6 +9,7 @@ scikit-learn
 pyarrow
 gspread-dataframe
 shapely
+spacy
 
 plotly
 matplotlib
