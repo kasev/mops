@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mops.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/data/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/article_ids_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/article_ids_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/collocation_replacements.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/collocation_replacements.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/decades.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/decades.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/decades_means.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/decades_means.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/dictionary_main.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/dictionary_main.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/dictionary_v1.dict" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/dictionary_v1.dict" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/entries_v3.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/entries_v3.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/freqs_tups.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/freqs_tups.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/sample.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/to_replace.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/to_replace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_freqs_complete.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_freqs_complete.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_vocabs.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs_counts_df.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_vocabs_counts_df.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/cooc_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_dict_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/cooc_dict_2000.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_norm_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/cooc_norm_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/freqs_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/freqs_2000.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/metadata_df.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/metadata_df.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/metadata_rich_df.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/metadata_rich_df.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shared_vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/shared_vocabulary.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/vocabulary.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/figures/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/hist_decades_articles.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/hist_decades_articles.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/hist_decades_wordcounts.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/hist_decades_wordcounts.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/overview_decades.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/overview_decades.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul-saint_vs_historical.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul-saint_vs_historical.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_academic.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_academic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_doctrine_theology.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_doctrine_theology.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_jewishness.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_jewishness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_st_apostle.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_st_apostle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/1_jstor-parsing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/1_jstor-parsing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_jstor-metadata-explorations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_jstor-metadata-explorations.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_lemmatization.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/3_word2vec_training.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_word2vec_training.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/4_count-based-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_count-based-matrices.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/6_from-bows-to-matrices_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/6_from-bows-to-matrices_DEVELOPMENT.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/6_lda_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/6_lda_DEVELOPMENT.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/7_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/7_word2vec_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/_2_jstor-spacy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/_2_jstor-spacy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/_3_jstor-preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/_3_jstor-preprocessing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/_4_jstor-exploring-unigrams.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/_4_jstor-exploring-unigrams.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/_5_trigrams-to-bow.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/_5_trigrams-to-bow.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/_6_exploring-trigrams-basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/_6_exploring-trigrams-basics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/exploring-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/exploring-matrices.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/freqs_explorations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/freqs_explorations.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/google_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/google_conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/scopus-search.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/scopus-search.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/temp.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/temp.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/userfunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/userfunctions.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2tqg3I1dKa7vrujMfiCLLYyv9Hb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" side_tool="true" />
+      <window_info id="Merge Requests" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" />
+      <window_info id="Learn" />
+      <window_info id="R_Remote_Host" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30964285" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="R_Jobs" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="R_Console" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="HfCacheToolWindow" />
+      <window_info anchor="bottom" id="Find" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.3052699" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="bottom" id="Python Packages" order="5" weight="0.1" />
+      <window_info anchor="bottom" id="mopdf" order="6" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.1" />
+      <window_info anchor="bottom" id="Jupyter" order="8" weight="0.33020833" />
+      <window_info anchor="right" id="PR AI Assistant" />
+      <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="R_Tools" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.33035713" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info anchor="right" id="Plots" order="5" weight="0.1" />
+    </layout>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.74" />
+        <option value="bundled-python-sdk-48e0493ecb77-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.74" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="" />
+      <created>1741084818222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741084818222</updated>
+      <workItem from="1741084819290" duration="800000" />
+      <workItem from="1741090034892" duration="5490000" />
+      <workItem from="1741116415563" duration="30000" />
+      <workItem from="1741116737592" duration="4796000" />
+      <workItem from="1741121889377" duration="348000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

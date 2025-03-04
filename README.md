@@ -3,6 +3,7 @@
 ---
 ## Authors
 * Vojtěch Kaše
+* Nina Nikki
 
 
 ## License
