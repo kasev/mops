@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/_2_lemmatization-or-stemming.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_jstor-metadata-explorations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_jstor-metadata-explorations.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +31,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -49,7 +51,7 @@
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
       <window_info id="R_Remote_Host" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18090278" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.240625" />
       <window_info id="Commit" order="1" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="R_Jobs" />
@@ -63,7 +65,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.19722223" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Services" order="4" />
       <window_info anchor="bottom" id="Python Packages" order="5" weight="0.1" />
       <window_info anchor="bottom" id="mopdf" order="6" />
@@ -74,9 +76,9 @@
       <window_info anchor="right" id="R_Tools" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
-      <window_info anchor="right" id="AIAssistant" order="1" weight="0.33020833" />
-      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Notifications" order="0" weight="0.33020833" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.18229166" />
+      <window_info anchor="right" id="Database" order="2" weight="0.22465277" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
       <window_info anchor="right" id="Plots" order="5" weight="0.1" />
@@ -85,8 +87,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.74" />
-        <option value="bundled-python-sdk-48e0493ecb77-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-45be767fe593-JavaScript-PY-251.23536.40" />
+        <option value="bundled-python-sdk-ed726c817bc5-aeb89614ce15-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23536.40" />
       </set>
     </attachedChunks>
   </component>
@@ -104,7 +106,13 @@
       <workItem from="1741116737592" duration="4796000" />
       <workItem from="1741121889377" duration="968000" />
       <workItem from="1741122939322" duration="1423000" />
-      <workItem from="1741124726088" duration="1190000" />
+      <workItem from="1741124726088" duration="2996000" />
+      <workItem from="1741128789959" duration="343000" />
+      <workItem from="1741129362933" duration="1526000" />
+      <workItem from="1741131199550" duration="2036000" />
+      <workItem from="1741779526732" duration="10601000" />
+      <workItem from="1741981940706" duration="8065000" />
+      <workItem from="1742061965209" duration="438000" />
     </task>
     <servers />
   </component>
