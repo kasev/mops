@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/proquest-dissertations_test.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/unigrams-cleaning.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
       <window_info id="R_Remote_Host" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17630814" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21276042" />
       <window_info id="Commit" order="1" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="R_Jobs" />
@@ -72,7 +71,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.2670139" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.32041666" />
       <window_info anchor="bottom" id="Services" order="4" />
       <window_info anchor="bottom" id="Python Packages" order="5" weight="0.1" />
       <window_info anchor="bottom" id="mopdf" order="6" />
@@ -84,7 +83,7 @@
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.33020833" />
-      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.26526162" />
+      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.26380208" />
       <window_info anchor="right" id="Database" order="2" weight="0.22465277" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
@@ -120,7 +119,7 @@
       <workItem from="1741779526732" duration="10601000" />
       <workItem from="1741981940706" duration="8065000" />
       <workItem from="1742061965209" duration="7809000" />
-      <workItem from="1742295808756" duration="7166000" />
+      <workItem from="1742295808756" duration="11030000" />
     </task>
     <servers />
   </component>
