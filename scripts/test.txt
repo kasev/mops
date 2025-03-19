@@ -28,16 +28,6 @@ council church
 local fellowship
 local fellowship
 establish maintain
-op cit
-op cit
-op cit
-op cit
-op cit
-op cit
-op cit
-op cit
-op cit
-op cit
 wcc commission
 wcc commission
 use several
@@ -111,8 +101,6 @@ holy spirit
 holy spirit
 discuss several
 discuss several
-function eg
-function eg
 specific historical
 specific historical
 hand require
@@ -235,8 +223,6 @@ make manifest
 make manifest
 special meeting
 special meeting
-unpublished m
-unpublished m
 christ body
 christ body
 long term
@@ -304,7 +290,6 @@ south india
 south india
 south india
 south india
-ed frankfurt
 social question
 social question
 dilemma pose
@@ -385,8 +370,9 @@ renew appreciation
 renew appreciation
 apostolic church
 apostolic church
-visser t hooft
-visser t hooft
+visser hooft
+visser hooft
+visser hooft
 individual church
 individual church
 individual church
@@ -588,7 +574,6 @@ future make
 source energy
 local gathering
 local gathering
-paul st
 north india
 north india
 ecumenical review vol
@@ -639,8 +624,8 @@ jesus christ
 spirit need
 question structure
 question structure
-church op cit
-neill op cit
+church cit
+neill cit
 life faith
 true community
 human being
@@ -675,7 +660,6 @@ ministry member
 possibility conflict
 set new
 common basis
-ed geneva
 end product
 end product
 church organize
@@ -766,7 +750,6 @@ profound question
 profound question
 actual life
 actual life
-press pp
 mission many
 mission unity
 unity order
@@ -800,7 +783,6 @@ version christian
 diverse situation
 con nection
 world vol
-epistles st
 local level
 local level
 local level
@@ -824,7 +806,6 @@ draw man
 continue work
 centralized organization
 life begin
-visser hooft
 explicit agreement
 explicit agreement
 identity other
@@ -845,8 +826,6 @@ minority group
 minority group
 common goal
 common goal
-visser t
-visser t
 describe discuss
 cherished tradition
 cherished tradition
@@ -891,7 +870,6 @@ christian truth
 much revision
 much revision
 raise issue
-do christ
 spend time
 spend time
 man woman
@@ -921,10 +899,8 @@ council churches
 council churches
 different type
 different type
-dr visser
-dr visser
 make voice
-vol xix no
+vol xix
 presence christ
 evan gelism
 make human
@@ -932,17 +908,14 @@ india make
 time place
 christian body
 ed london
-ed london
 see meyer
 united churches
 united churches
 process order
 membership include
 york association
-cit pp
 decisionmaking process
 decisionmaking process
-pp church
 plan union
 plan union
 large variety
@@ -951,7 +924,6 @@ confession faith
 approach church
 man minister
 man minister
-du christ au
 church force
 note great
 god call
@@ -969,14 +941,11 @@ leader follower
 exist particular
 serve unity
 new delhi assembly
-ex press
 order louvain
 order louvain
 order louvain
 order louvain
 order louvain
-rev dr
-rev dr
 broad area
 startling fact
 startling fact
@@ -1157,7 +1126,6 @@ manifest reality
 time unite
 national basis
 national basis
-god do
 gospel proclaim
 hope promise
 christian advocate
@@ -1198,7 +1166,6 @@ exist christ
 denominational confessional
 side side
 separate existence
-xix no
 immense complexity
 immense complexity
 preparation union
@@ -1208,7 +1175,6 @@ kind continuity
 include church
 spiritual unity
 spiritual unity
-church op
 tion christ
 traditional source
 traditional source
@@ -1233,12 +1199,12 @@ experience life
 theological understanding
 type organization
 vol xvii
+vol xvii
 particular confessional
 communion christ
 search community
 level life
 social service
-op cit pp
 word sacrament
 increase awareness
 increase awareness
@@ -1246,11 +1212,9 @@ divert attention
 divert attention
 cerne nature
 diversity social
-xvii no
 common worship
 primary factor
 primary factor
-vol xvii no
 organization structure
 share experience
 madras christian
@@ -1326,7 +1290,6 @@ church south
 church london
 church london
 whole christian tradition
-ask do
 devel opment
 consum mate
 time energy
@@ -1387,8 +1350,6 @@ central committee
 pose problem
 unity solidarity
 different sociological
-st james
-st james
 imply possibility
 bring actual
 imply acceptance
@@ -1407,8 +1368,6 @@ simple avoidance
 simple avoidance
 con stituency
 seek unity
-st paul
-st paul
 many problem
 identity member
 significant opportunity
