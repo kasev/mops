@@ -6,31 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bidecades_freqs_complete.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_freqs_complete.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_vocabs.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs_counts_df.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/bidecades_vocabs_counts_df.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cooc_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/cooc_dict.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cooc_dict_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/cooc_dict_2000.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/freqs_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/freqs_2000.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shared_vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/shared_vocabulary.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/vocabulary.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/journals_comparison.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/journals_comparison.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/paul-saint_vs_historical.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul-saint_vs_historical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/3_word2vec_training.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/3_word2vec_training.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/4_count-based-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_count-based-matrices.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/6_from-bows-to-matrices_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_from-bows-to-matrices_DEVELOPMENT.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/6_lda_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_6_lda_DEVELOPMENT.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_2_jstor-spacy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_2_jstor-spacy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_2_lemmatization-or-stemming.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_2_lemmatization-or-stemming.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_3_jstor-preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_3_jstor-preprocessing.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_4_jstor-exploring-unigrams.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_4_jstor-exploring-unigrams.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_5_trigrams-to-bow.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_5_trigrams-to-bow.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/_6_exploring-trigrams-basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/_6_exploring-trigrams-basics.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/exploring-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/colab_exploring-matrices.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/freqs_explorations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/colab_exploring-frequencies.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/oalex-metadata.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/scopus-search.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/archive/scopus-search.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/backup/freqs_tups.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/freqs_tups.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_academic.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_academic.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figures/paul_jewishness.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_jewishness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/7_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/7_word2vec_analysis-continuation.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +86,7 @@
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.07136628" />
-      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.22534722" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.22534722" />
       <window_info anchor="right" id="Database" order="2" weight="0.22465277" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
@@ -115,6 +95,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/scripts/archive" />
     </key>
   </component>
@@ -150,7 +131,7 @@
       <workItem from="1742295808756" duration="33310000" />
       <workItem from="1742556294031" duration="254000" />
       <workItem from="1742556561039" duration="200000" />
-      <workItem from="1742556795572" duration="13571000" />
+      <workItem from="1742556795572" duration="14793000" />
     </task>
     <servers />
   </component>
