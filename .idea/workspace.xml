@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/mops-vectors_streamlit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/backup/freqs_tups.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/freqs_tups.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/figures/paul_academic.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_academic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/paul_jewishness.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_jewishness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/7_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/7_word2vec_analysis-continuation.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +20,25 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kasev&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kasev/mops.git&quot;,
+    &quot;accountId&quot;: &quot;1ff1fd83-1d81-4dcc-8c7a-8c90f744a4bd&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -59,7 +71,7 @@
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
       <window_info id="R_Remote_Host" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20659722" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.196875" />
       <window_info id="Commit" order="1" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="R_Jobs" />
@@ -73,7 +85,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.2738889" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.3161111" />
       <window_info anchor="bottom" id="Services" order="4" />
       <window_info anchor="bottom" id="Python Packages" order="5" weight="0.1" />
       <window_info anchor="bottom" id="mopdf" order="6" />
@@ -86,7 +98,7 @@
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.07136628" />
-      <window_info anchor="right" id="AIAssistant" order="1" weight="0.22534722" />
+      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.36840278" />
       <window_info anchor="right" id="Database" order="2" weight="0.22465277" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
@@ -131,7 +143,10 @@
       <workItem from="1742295808756" duration="33310000" />
       <workItem from="1742556294031" duration="254000" />
       <workItem from="1742556561039" duration="200000" />
-      <workItem from="1742556795572" duration="14793000" />
+      <workItem from="1742556795572" duration="16801000" />
+      <workItem from="1742904031383" duration="4703000" />
+      <workItem from="1743507270300" duration="1403000" />
+      <workItem from="1743731577322" duration="6207000" />
     </task>
     <servers />
   </component>
