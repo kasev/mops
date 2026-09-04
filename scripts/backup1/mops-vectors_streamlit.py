@@ -21,7 +21,7 @@ st.markdown("""
 
 # MOPS
 
-This web app serves for interactive visualizations of a set of word embedding models trained on textual data from 25,000 articles covering 120 years of Pauline scholarship" 
+This web app serves for interactive visualizations of a set of word embedding models trained on textual data from 25,000 articles covering 120 years of Pauline scholarship. 
 """)
 
 # loading data

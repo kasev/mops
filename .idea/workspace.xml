@@ -5,16 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/mops-vectors_streamlit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/jstor-metadata-loader.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mops.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figures/paul_academic.png" beforeDir="false" afterPath="$PROJECT_DIR$/figures/paul_academic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_freqs_complete.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/bidecades_freqs_complete.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/bidecades_vocabs.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bidecades_vocabs_counts_df.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/bidecades_vocabs_counts_df.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/cooc_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_dict_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/cooc_dict_2000.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/cooc_norm_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/cooc_norm_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/freqs_2000.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/freqs_2000.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/freqs_tups.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/freqs_tups.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/metadata_df.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/metadata_df.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/metadata_rich_df.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/constellate_metadata_rich_df.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/metadata_rich_oalex.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/metadata_rich_oalex.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/openalex_works_series.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/openalex_works_series.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shared_vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/shared_vocabulary.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/vectors_positions3d_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/vectors_positions3d_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/vectors_positions_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/vectors_positions_dict.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/vocabulary.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/backup/vocabulary.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/1_jstor-parsing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/1_jstor-parsing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_jstor-metadata-explorations.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/2_jstor-metadata-explorations.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_lemmatization-or-stemming.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/2_lemmatization-or-stemming.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/2_oalex-metadata.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/2_oalex-metadata.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/3_exploring-vocabularies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/3_exploring-vocabularies.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/3_word2vec_training.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/3_word2vec_training.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/4_count-based-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/4_count-based-matrices.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/4_word2vec_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/4_word2vec_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/7_word2vec_analysis-continuation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/7_word2vec_analysis-continuation.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_2_jstor-spacy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_2_jstor-spacy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_2_lemmatization-or-stemming.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_2_lemmatization-or-stemming.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_3_jstor-preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_3_jstor-preprocessing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_4_jstor-exploring-unigrams.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_4_jstor-exploring-unigrams.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_5_trigrams-to-bow.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_5_trigrams-to-bow.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_6_exploring-trigrams-basics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_6_exploring-trigrams-basics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_6_lda_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_6_lda_DEVELOPMENT.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/_from-bows-to-matrices_DEVELOPMENT.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/_from-bows-to-matrices_DEVELOPMENT.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/archive/scopus-search.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/scopus-search.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/colab_exploring-frequencies.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/colab_exploring-frequencies.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/colab_exploring-matrices.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/colab_exploring-matrices.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/mops-vectors_streamlit.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup1/mops-vectors_streamlit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/proquest-dissertations_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/proquest-dissertations_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/unigrams-cleaning.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/unigrams-cleaning.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/userfunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/backup2/userfunctions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="175543" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,6 +85,69 @@
     &quot;accountId&quot;: &quot;1ff1fd83-1d81-4dcc-8c7a-8c90f744a4bd&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.492383079910746" />
+      <entry key="MS500" value="4.287793140345256" />
+      <entry key="S2" value="10.945991278310112" />
+      <entry key="S5" value="22.01493487374288" />
+      <entry key="S10" value="34.73959730808154" />
+      <entry key="S30" value="59.34514431164502" />
+      <entry key="S60" value="86.56190086442987" />
+      <entry key="M2" value="122.95388492220154" />
+      <entry key="M5" value="170.38944102890073" />
+      <entry key="M10" value="209.47857831859093" />
+      <entry key="M15" value="255.40433573932063" />
+      <entry key="M30" value="407.0551399306802" />
+      <entry key="H1" value="634.233843836172" />
+      <entry key="H2" value="886.5167976889863" />
+      <entry key="H4" value="1102.4698268939624" />
+      <entry key="D1" value="1370.4859755685059" />
+      <entry key="W1" value="1428.0132439604154" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.14E-322" />
+      <entry key="S10" value="1.0623313923042915E-161" />
+      <entry key="S30" value="2.2916283874431605E-54" />
+      <entry key="S60" value="1.7882383487319032E-27" />
+      <entry key="M2" value="5.598632551220969E-14" />
+      <entry key="M5" value="7.448036714607694E-6" />
+      <entry key="M10" value="0.0038478347511990926" />
+      <entry key="M15" value="0.030974660078599753" />
+      <entry key="M30" value="0.26544410372346" />
+      <entry key="H1" value="0.9939020557720762" />
+      <entry key="H2" value="2.3876581334971716" />
+      <entry key="H4" value="3.9899675696654167" />
+      <entry key="D1" value="6.353956915998675" />
+      <entry key="W1" value="6.903330293661728" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.4580859877554877" />
+      <entry key="MS500" value="4.2638533328712" />
+      <entry key="S2" value="10.930721769629761" />
+      <entry key="S5" value="22.00349277597665" />
+      <entry key="S10" value="34.73048130031575" />
+      <entry key="S30" value="59.32801105888633" />
+      <entry key="S60" value="86.53913118762718" />
+      <entry key="M2" value="122.93376386859666" />
+      <entry key="M5" value="170.3769831951561" />
+      <entry key="M10" value="209.4742906369673" />
+      <entry key="M15" value="255.42861762472396" />
+      <entry key="M30" value="407.31460994880223" />
+      <entry key="H1" value="635.2215018430239" />
+      <entry key="H2" value="888.8985077390848" />
+      <entry key="H4" value="1106.4552813194791" />
+      <entry key="D1" value="1376.8388149141908" />
+      <entry key="W1" value="1434.9164026783164" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -47,33 +156,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/jupyter-vojta/notebooks/mops/scripts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
       <window_info id="Merge Requests" />
+      <window_info id="AI Playground" side_tool="true" />
+      <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
       <window_info id="R_Remote_Host" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.196875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21909723" />
       <window_info id="Commit" order="1" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NextEditPredictionSettingsToolwindow" />
       <window_info anchor="bottom" id="R_Jobs" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -85,7 +203,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.3161111" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" />
       <window_info anchor="bottom" id="Services" order="4" />
       <window_info anchor="bottom" id="Python Packages" order="5" weight="0.1" />
       <window_info anchor="bottom" id="mopdf" order="6" />
@@ -93,12 +211,15 @@
       <window_info anchor="bottom" id="Jupyter" order="8" weight="0.33020833" />
       <window_info anchor="right" id="PR AI Assistant" />
       <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="cn.xcc.lock.gson.toolwindow.JsonAssistantToolWindowFactory" side_tool="true" />
       <window_info anchor="right" id="R_Tools" />
       <window_info anchor="right" id="documentation.v2" show_stripe_button="false" side_tool="true" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="ElectroJunToolWindow" />
       <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Jupyter Variables" side_tool="true" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.07136628" />
-      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.36840278" />
+      <window_info active="true" anchor="right" id="AIAssistant" order="1" visible="true" weight="0.31215277" />
       <window_info anchor="right" id="Database" order="2" weight="0.22465277" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
@@ -106,16 +227,22 @@
     </layout>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/backup" />
+      <recent name="$PROJECT_DIR$/scripts/helsinki-paper" />
       <recent name="$PROJECT_DIR$/scripts/archive" />
+      <recent name="$PROJECT_DIR$/scripts" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.27258.51" />
+        <option value="bundled-python-sdk-84eaadda3698-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.27258.51" />
       </set>
     </attachedChunks>
   </component>
@@ -146,7 +273,21 @@
       <workItem from="1742556795572" duration="16801000" />
       <workItem from="1742904031383" duration="4703000" />
       <workItem from="1743507270300" duration="1403000" />
-      <workItem from="1743731577322" duration="6207000" />
+      <workItem from="1743731577322" duration="9945000" />
+      <workItem from="1744127578196" duration="1937000" />
+      <workItem from="1744408959826" duration="3387000" />
+      <workItem from="1745315104907" duration="1336000" />
+      <workItem from="1745998442421" duration="3206000" />
+      <workItem from="1746083828056" duration="133000" />
+      <workItem from="1748349516956" duration="1717000" />
+      <workItem from="1749043433738" duration="34000" />
+      <workItem from="1749043477533" duration="6000" />
+      <workItem from="1750847943976" duration="14000" />
+      <workItem from="1750997705456" duration="33000" />
+      <workItem from="1751224563660" duration="109000" />
+      <workItem from="1751224697344" duration="67000" />
+      <workItem from="1760628147094" duration="47000" />
+      <workItem from="1788506763141" duration="10986000" />
     </task>
     <servers />
   </component>

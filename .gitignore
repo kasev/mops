@@ -1,2 +1,4 @@
 /data/large_files/
+/data/large_files_BACKUP/
 /mops_venv/
+/scripts/backup*
