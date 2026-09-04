@@ -94,6 +94,8 @@ article has no reference list. `scripts/jstor-metadata-loader.ipynb` wraps this 
 | `references_txts/` | 279,485 `<item_id>.txt`, one bibliography entry per line, 1.23 GiB |
 | `jstor_fulltext_parser.py` | the extractor — run it to rebuild, `--verify` to check, `--help` for flags; its module docstring documents the schema and every normalisation decision |
 | `extract_logs/` | `extract_report.json` (run stats), `extract.log`, `extract_errors.log` (empty = clean run) |
+| `paul_concordance.py` | tiered regex detector for references to Paul the Apostle → concordance; `--help`, re-run ~5 min on 30 cores |
+| `paul_scan/` | `hits.tsv.gz` (571,896 rows: pattern, tier, flags, offsets, KWIC, sentence), `hits_by_doc.tsv.gz`, `concordance_A\|B\|C.txt`, `scan_report.json`, `paul_exclusions.txt`, `paul_eval.tsv`, `probes/` |
 
 Rebuild takes ~4.5 min single-threaded; re-running resumes (only missing files are written).
 
