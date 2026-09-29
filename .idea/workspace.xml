@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab179e6-395c-4a3a-9351-fd0256888e79" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/jstor-metadata-loader.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/jstor-metadata-loader.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +242,7 @@
       <workItem from="1751224697344" duration="67000" />
       <workItem from="1760628147094" duration="47000" />
       <workItem from="1788506763141" duration="19058000" />
-      <workItem from="1789561550932" duration="986000" />
+      <workItem from="1789561550932" duration="1586000" />
     </task>
     <servers />
   </component>
