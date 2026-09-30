@@ -363,7 +363,13 @@ DEFAULT_FP_FILTER = ("papacy_or_numeral", "capital_after", "excluded_name",
 DEFAULT_FP_FILTER_TIERS = "C"
 
 
-def kwic(orig: str, start: int, end: int, side: int = KWIC_CHARS):
+def kwic(orig: str, start: int, end: int, side: int | None = None):
+    # `side` must NOT default to KWIC_CHARS directly: a default argument is
+    # evaluated once, when this module is imported, so it would freeze the value
+    # at 42 and ignore the `global KWIC_CHARS` assignment in main() -- in this
+    # process and in every forked worker.  Read the global at call time instead.
+    if side is None:
+        side = KWIC_CHARS
     l = max(0, start - side)
     r = min(len(orig), end + side)
     left = orig[l:start]
