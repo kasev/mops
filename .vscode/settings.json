@@ -1,0 +1,27 @@
+{
+    "workbench.editorLargeFileConfirmation": 80,
+
+    // Do NOT attach the Data Wrangler interactive viewer to notebook outputs.
+    // It serialises every column of every DataFrame into the .ipynb as
+    // "application/vnd.microsoft.datawrangler.viewer.v0+json". For the wide
+    // vocab_matrix_* frames (83 rows x 101,435 columns) that alone is ~30 MB,
+    // which is what inflates this notebook to ~45 MB. pandas' own repr already
+    // truncates wide frames, so leaving this off is enough.
+    "dataWrangler.outputRenderer.enabled": false,
+    "dataWrangler.outputRenderer.enabledTypes": {
+        "pandas.core.frame.DataFrame": false,
+        "pandas.DataFrame": false,
+        "pandas.core.series.Series": false,
+        "pandas.Series": false,
+        "numpy.ndarray": false,
+        "builtins.list": false,
+        "builtins.dict": false,
+        "torch.Tensor": false,
+        "tensorflow.python.framework.ops.EagerTensor": false,
+        "xarray.core.dataarray.DataArray": false,
+        "polars.dataframe.frame.DataFrame": false,
+        "polars.series.series.Series": false,
+        "pyspark.sql.dataframe.DataFrame": false,
+        "pyspark.sql.connect.dataframe.DataFrame": false
+    }
+}
