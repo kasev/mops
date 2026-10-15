@@ -16,3 +16,7 @@ matplotlib
 seaborn
 
 sddk
+
+# The /mops/ web app (scripts/mops_jstor.py + scripts/mops_app/).
+# See scripts/mops_app/README.md.
+streamlit

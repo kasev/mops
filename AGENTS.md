@@ -1,5 +1,53 @@
 ### DONE
 
+**2026-10-15 — web app rebuilt from the notebook: `scripts/mops_jstor.py` (`/mops/`)**
+
+- Ported the "Temporal lineplots" section of `scripts/5_tokens-analysis.ipynb` into a
+  multi-page streamlit app, deployed through the existing systemd + nginx setup.
+- Layout: `scripts/mops_jstor.py` (entry, `st.navigation`) + `scripts/mops_app/`
+  (`data.py` loaders/filters/temporal aggregation — **no streamlit import**, so notebooks can
+  reuse it; `cache.py` the `st.cache_data` wrappers; `plots.py` the matplotlib port of
+  `plot_timebins` plus its plotly twin; `pages/temporal.py`, `pages/concordance.py`).
+- New `scripts/prepare_jstor_app_data.py` flattens `hits_nlp.parquet` (whose nested `kwic_nlp`
+  column dominates load time) into `data/large_files/paul_scan/tokens.parquet` — 426,917 rows,
+  18 MB, built in 20 s; carries hit metadata + `filtered_lemmata`. `(item_id, char_start)` is
+  asserted unique and joins 100% to `hits.parquet` for KWIC display.
+- **Notebook parity verified**: `jewish`/`judaism`/`jew`, bidecades, English, no
+  discipline/confession filter, metric `per_20` reproduces all 18 recorded values and all six
+  `subset_length`s (13,509 / 11,062 / 21,082 / 36,843 / 76,556 / 107,307) exactly. Pinned in
+  `scripts/check_mops_app.py` (also smoke-tests every page via streamlit's `AppTest`).
+- Defects fixed while porting: `from_words_to_freqs` had no `return` and a syntax error;
+  `hits_filtering` was defined with one parameter and called with four; the 1900–2020 window and
+  the `×20` scale were hard-coded. Replaced by `data.filter_tokens` + `data.words_over_time`;
+  counting is a pandas groupby on the exploded lemma column, so the app has no `nltk` runtime
+  dependency (the notebook used `nltk.FreqDist`).
+- Deployment: unit `/etc/systemd/system/mops.service` (updated: `--server.headless true`,
+  `PYTHONUNBUFFERED=1`, `--server.baseUrlPath mops`; backup at `mops.service.bak-*`) enabled +
+  started. nginx `/mops/` block changed to `proxy_pass http://127.0.0.1:8061/mops/;` with the
+  `rewrite ^/mops(/.*)$ $1 break;` **removed** (backup `ccs-lab.bak-*`).
+- **Why `baseUrlPath` is needed here but not for the six sibling apps** (they all strip the
+  prefix and work): streamlit's *bootstrap* HTML uses relative asset URLs (`./static/…`), which
+  the stripping rewrite serves fine; but anything the frontend resolves against `location.pathname`
+  breaks once the URL has more than one segment. Reloading or deep-linking a sub-page made the app
+  request `/mops/_temporal/_stcore/health` (404). With `baseUrlPath=mops` all of it is
+  `/mops/_stcore/*` (200). Verified: `/mops/`, `/mops/_temporal`, `/mops/_concordance`,
+  `/mops/_stcore/health` all 200; the frontend's 404 probes on the bare page path are harmless
+  (it falls back). Test the **sub-path reload**, not just the index page.
+- Also added an nginx `location /media/ { proxy_pass http://127.0.0.1:8061/mops/media/; }`:
+  streamlit 1.44 builds download-button URLs as bare `/media/<id>`
+  (`web/server/server.py: MemoryMediaFileStorage(MEDIA_ENDPOINT)`) while only *serving* them under
+  the base path, so every "Download as CSV" would 404. Nothing else on the host serves `/media/`.
+  (Verified working by the user on the real machine; the headless browser could not capture the
+  download tab, which is a browser-harness limitation, not an app bug.)
+- `streamlit` added to `requirements.txt`; `__pycache__/` added to `scripts/.gitignore`;
+  app docs in `scripts/mops_app/README.md`.
+- One production crash found *by* the deployment and fixed: `words_over_time` used
+  `denominator.replace(0, pd.NA).astype(float)` for a bin with zero concordances. That `replace`
+  makes the series object-dtype, so `astype(float)` raises `TypeError: float() argument must be a
+  string or a real number, not 'NAType'` — it only fires when a filter empties a bin (narrow year
+  window, or a discipline the old journals do not belong to). Now `data._non_zero()`
+  (`astype(float).where(> 0)`), covered by `check_mops_app.py`'s edge-case checks.
+
 **2026-09-04 — project picked up again; new (2026-04) ITHAKA/JSTOR delivery ingested**
 
 - Located the new delivery on `/srv/data/jstor/jstor2026-04/` (outside git): metadata

@@ -55,8 +55,9 @@ mkdir -p data/large_files         # gitignored scratch space for derived artifac
 Always check that a notebook is attached to the `mops_venv` kernel.
 `scripts/histwords/` is a vendored copy of the histwords library (SGNS matrices, alignment);
 it is used from the notebooks directly and needs no separate install.
-`scripts/backup1/mops-vectors_streamlit.py` needs `streamlit`, which the venv has but
-`requirements.txt` does not list.
+`scripts/backup1/mops-vectors_streamlit.py` is the app of the 2022-2025 iteration (the 3-D
+vector explorer); it is superseded by the current app under `scripts/mops_app/` and is kept
+only for reference.
 
 ### Reading a single article (fast path)
 
@@ -77,6 +78,37 @@ refs = ref_path.read_text(encoding="utf-8").splitlines() if ref_path.exists() el
 `item_id` is the JSTOR `item_id` / `iid` from the metadata CSV; a missing reference file means the
 article has no reference list. `scripts/jstor-metadata-loader.ipynb` wraps this in
 `jstor_text()` / `jstor_references()` and explains the layout.
+
+### Web app — <https://ccs-lab.zcu.cz/mops/>
+
+An interactive front end to the Paul concordance: how often words occur near a mention of
+Paul over time, and the quoted lines behind those counts.
+
+| page | what it does |
+| --- | --- |
+| **About** | what the app shows and how to read the tiers, flags and normalisation |
+| **Temporal frequencies** | one line per word per time bin, with bin length, year window, metric (raw / per-1,000 concordances / notebook's `×20` / share) and the corpus subset (tier, language, discipline, confession, journal, patterns, flags) all under your control |
+| **Concordance browser** | the collisions themselves — search by context lemma, by KWIC text, or by scan pattern; each hit shows its sentence and the article's own wording |
+
+The notebook equivalent of the first page is the "Temporal lineplots" section of
+`5_tokens-analysis.ipynb`; the app's implementation is checked against that notebook's
+recorded output (`scripts/check_mops_app.py`).
+
+```bash
+# run locally
+cd scripts
+../mops_venv/bin/python -m streamlit run mops_jstor.py \
+    --server.address localhost --server.port 8061
+
+# smoke-test every page + the notebook-parity numbers, without a server
+../mops_venv/bin/python check_mops_app.py
+
+# rebuild the slim table the app loads (~20 s, 18 MB)
+../mops_venv/bin/python prepare_jstor_app_data.py
+```
+
+Deployed by the systemd unit `mops.service` (port 8061) behind nginx under `/mops/`; see
+`scripts/mops_app/README.md` for the module layout and how to add a page.
 
 ---
 
@@ -130,9 +162,14 @@ requirements.txt           python dependencies
 figures/                   output plots of the 2022-2025 study
 data/
   backup/                  pickles/json of the old pipeline (moved out of data/ in Sep 2026)
-  large_files/             gitignored scratch space (currently empty)
+  large_files/             gitignored scratch space: jstor_metadata_parquet/, paul_scan/
   large_files_BACKUP/      gitignored per-article n-grams, vectors, old delivery
 scripts/
+  mops_jstor.py                 entry point of the /mops/ streamlit app
+  mops_app/                     app package: data.py (no streamlit), plots.py, pages/
+  prepare_jstor_app_data.py     builds paul_scan/tokens.parquet from hits_nlp.parquet
+  check_mops_app.py             page smoke tests + notebook-parity assertions
+  paul_concordance.py           the tiered Paul detector (the app's data source)
   jstor-metadata-loader.ipynb   current entry point: 2026 metadata + text access
   google_conf.py                Google-Sheet / service-account helper
   histwords/                    vendored histwords library
@@ -152,7 +189,8 @@ app); `scripts/backup2` holds the final 2025 pipeline, whose steps are:
    count-based SGNS matrices (histwords).
 6. `4_word2vec_analysis.ipynb`, `7_word2vec_analysis-continuation.ipynb` — semantic change of the
    target terms, nearest neighbours of "Paul" over time.
-7. `backup1/mops-vectors_streamlit.py` — interactive 3-D vector exploration app.
+7. `backup1/mops-vectors_streamlit.py` — interactive 3-D vector exploration app
+   (superseded by `scripts/mops_app/`, the `/mops/` streamlit app).
 
 ---
 

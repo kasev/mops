@@ -1,1 +1,3 @@
 /histwords/
+__pycache__/
+*.py[cod]
