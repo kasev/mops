@@ -20,3 +20,7 @@ sddk
 # The /mops/ web app (scripts/mops_jstor.py + scripts/mops_app/).
 # See scripts/mops_app/README.md.
 streamlit
+
+# The topic model (scripts/fit_paul_topics.py, scripts/6_paul-topics.ipynb) needs a much
+# heavier stack (torch, transformers, bertopic) and a pinned install order. It is NOT part
+# of this baseline: install it separately with requirements-topics.txt. See TOPICS.md.

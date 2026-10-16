@@ -47,7 +47,7 @@ st.set_page_config(
 )
 
 from mops_app import data  # noqa: E402
-from mops_app.pages import concordance, temporal  # noqa: E402
+from mops_app.pages import concordance, temporal, topics  # noqa: E402
 
 ABOUT = """
 # MOPS
@@ -64,6 +64,7 @@ each one detected by a tiered regex scan and stored with its keyword-in-context 
 | --- | --- |
 | **Temporal frequencies** | how often words occur near a Paul reference, per time bin, with the corpus subset under your control |
 | **Concordance browser** | the quoted lines themselves — search by context lemma, by text, or by scan pattern |
+| **Topics around Paul** | an unsupervised topic model (BERTopic) of the ±10-token window, showing which lexical configurations recur and how they move over time |
 
 ## Reading the numbers
 
@@ -118,8 +119,13 @@ def _concordance() -> None:
     concordance.render()
 
 
+def _topics() -> None:
+    topics.render()
+
+
 st.navigation([
     st.Page(_about, title="About", icon="📚", default=True),
     st.Page(_temporal, title="Temporal frequencies", icon="📈"),
     st.Page(_concordance, title="Concordance browser", icon="🔍"),
+    st.Page(_topics, title="Topics around Paul", icon="🧩"),
 ]).run()

@@ -89,10 +89,21 @@ Paul over time, and the quoted lines behind those counts.
 | **About** | what the app shows and how to read the tiers, flags and normalisation |
 | **Temporal frequencies** | one line per word per time bin, with bin length, year window, metric (raw / per-1,000 concordances / notebook's `×20` / share) and the corpus subset (tier, language, discipline, confession, journal, patterns, flags) all under your control |
 | **Concordance browser** | the collisions themselves — search by context lemma, by KWIC text, or by scan pattern; each hit shows its sentence and the article's own wording |
+| **Topics around Paul** | the BERTopic model over the same windows: which lexical configurations recur, how their shares move over time, and how they differ between subsets. States the outlier share rather than hiding it |
 
 The notebook equivalent of the first page is the "Temporal lineplots" section of
 `5_tokens-analysis.ipynb`; the app's implementation is checked against that notebook's
 recorded output (`scripts/check_mops_app.py`).
+
+### Notebooks
+
+`scripts/6_paul-topics.ipynb` explores the topic model for the two questions it is usually
+asked: **the relative topic distribution over time**, and **how that differs across subsets**
+(tier, language, journal discipline and confession). It reuses the same `mops_app.topics_data`
+functions the app renders, so the two cannot disagree, and it deliberately computes no p-values —
+the documents are overlapping ±10-token windows and therefore not independent observations.
+Read `TOPICS.md` first: it holds the decisions, the frozen parameters and the limitations, and a
+topic number means nothing without them.
 
 ```bash
 # run locally
@@ -157,8 +168,10 @@ account key is deliberately outside the repository and notebooks look for it at
 
 ```
 AGENTS.md                  running log: what is DONE, what is TO-DO
+TOPICS.md                  decision record for the topic model (BERTopic over the concordance)
 README.md                  this file
-requirements.txt           python dependencies
+requirements.txt           python dependencies (app + notebooks)
+requirements-topics.txt    optional topic-modelling stack, installed separately (see TOPICS.md)
 figures/                   output plots of the 2022-2025 study
 data/
   backup/                  pickles/json of the old pipeline (moved out of data/ in Sep 2026)

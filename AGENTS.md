@@ -1,5 +1,101 @@
 ### DONE
 
+**2026-10-15 — topic model designed and documented: `TOPICS.md` (decision record)**
+
+- Added **`TOPICS.md`** — a reproducibility record for the BERTopic model over the concordance:
+  data, 12 numbered decisions each with the evidence and the rejected alternative, fixed
+  parameters, pinned versions, reproduce commands, and an explicit limitations section.
+  **Read it before citing any topic number.** Companion `requirements-topics.txt` holds the
+  stack (installed separately from the app's baseline).
+- The decisions are measurement-driven where it mattered — two naive choices were disproved by
+  smoke tests on 4,226 real documents: (a) passing the **natural KWIC text** as `docs=` yields
+  function-word topics (`the_of_paul_in`, `de_la_paulus_der`), so labels come from the
+  **lemmatised window** (35 interpretable topics vs 2); (b) the English-only `all-MiniLM-L6-v2`
+  **splits by language rather than theme** (English vs French/German), so the model is the
+  multilingual `paraphrase-multilingual-MiniLM-L12-v2`.
+- Corpus: en+fr+de (`eng`,`en`,`fre`,`ger`) = 414,922 hits, of which **347,964** are fitted
+  (66,958 dropped for having no content lemma — forced, 16.14%); 1900–2019; 53,612 articles,
+  289 journals. Document unit = the ±10-token window (spans overlap, so observations are
+  non-independent — stated in the record, not glossed over).
+- Environment: installed into `mops_venv` **without touching the app's stack** — numpy 1.26.4,
+  pandas 2.2.3, umap 0.5.7, sklearn 1.6.1, scipy 1.13.1, numba 0.61.0, streamlit 1.44.1 and
+  click/setuptools all unchanged (verified); pre-install snapshot in
+  `data/large_files/paul_scan/topics/pip-freeze-before.txt`. Added `bertopic 0.17.4`,
+  `sentence-transformers 5.2.0`, `torch 2.10.0+cu128`, `hdbscan 0.8.44`. **Order matters**:
+  torch first from the CUDA-12.8 index, else pip pulls torch 2.14.1 + a CUDA-13 stack (~4 GB).
+  App regression re-run after the install: `check_mops_app.py` all OK, 4 endpoints 200.
+- Hardware: 1× RTX A4000 (16.7 GB). **CUDA works** even though `nvidia-smi` reports an NVML
+  driver/library mismatch (kernel 580.173.02 vs userspace 580.178.04; needs a reboot — it does
+  **not** block CUDA, and the workstation was not rebooted). Measured: embedding ≈2,400 docs/s
+  → 348k in ≈2.5 min; UMAP ≈5 min; whole fit **≈15–25 min**. Large outputs go under
+  `data/large_files/` incl. `HF_HOME=data/large_files/hf_cache`.
+
+**2026-10-16 — the topic model is fitted and the encoder question is settled**
+
+- **Production fit done** (`fit_paul_topics.py --min-topic-size-frac 0.002`): **50 topics** over
+  **379,859** documents (en+fr+de, 1900–2019), **56.2%** in the outlier topic, 936 s. Artifacts
+  under `data/large_files/paul_scan/topics/`; `report.json` has the resolved parameters.
+  `--verify` OK, `check_mops_app.py` ALL OK. Record: `TOPICS.md` §4.1. Topics are language-mixed
+  as intended (e.g. `jewish, jews, juif, judaism, jew, jude, jüdisch`).
+- **A severe error was caught by sweeping at the production scale** (new **D8.2** — read it before
+  touching HDBSCAN parameters). The **first** full-scale fit used `cluster_selection_epsilon=0.1`,
+  tuned on the 100k sample, and produced a **degenerate model that looked good on the headline
+  metric**: 36 topics, a *low* 32.9% outlier share, and **one topic holding 199,733 documents** —
+  52.6% of the corpus. Sweeping 16 configurations at full scale showed why: **`epsilon` is an
+  *absolute* distance, and our UMAP space shrinks as *n* grows, so it does not transfer between
+  sample sizes.** At full scale `epsilon=0.1` yields the same ~200k blob at *every*
+  `min_cluster_size`; values ≤0.03 are inert and 0.05 barely differs. **The trap:** the failure
+  *improves* the metric used to choose parameters (56% → 33% outliers), so a search optimising that
+  metric alone would have selected the collapsed model. `--sweep` now reports
+  `largest_topic_share` alongside, and a single near-global cluster with an implausibly low outlier
+  share is treated as a **failure signature**. Corrected choice: `min_cluster_size` **0.200%**
+  (**760**), `min_samples=1`, **`epsilon=0.0`**.
+- **Corollary: never infer the outlier share across scales.** It is ~42% on a 100k sample and
+  **56.2%** on the full set at the same proportion — it *rises* with *n*. My own earlier note in
+  this file claimed it *falls* and called a pilot "pessimistic"; that compared a pilot against the
+  collapsed fit and was wrong. §7's warning is now stronger, not weaker: **more than half the
+  corpus is unclustered**, so "the topics" means the 43.8% HDBSCAN was willing to cluster.
+- **Encoder reviewed and the existing one retained, on post-D13 evidence** (new **D6.1**).
+  `intfloat/multilingual-e5-large` (1024-d, SOTA) was fitted on **identical** documents and
+  parameters: it cut outliers (31.1% vs 41.9%) but **clustered by language, not theme** — 46 of 47
+  topics >90% one language, its two largest being the German and French clusters jointly holding
+  35% of the sample. That is precisely the failure D6 exists to prevent. Prefix ruled out as the
+  cause (`passage: ` was E5's *best* setting). Independent check on translation triples: MiniLM's
+  mean cross-lingual cosine **0.936** beats every E5 variant (≤0.933) — MiniLM is paraphrase-trained,
+  E5 is not. **Lesson: larger/newer ≠ more cross-lingual.** Evidence in
+  `topics/encoder_comparison_fair.json`. The E5 weights are **kept** in
+  `data/large_files/hf_cache` along with its `embeddings_…npy` / `reduced5_…npy`, so the comparison
+  is reproducible at ~6 s a re-cluster; only its redundant export formats (ONNX/OpenVINO/`.bin`,
+  7.3 GB) were pruned, after verifying the model still loads and embeds.
+- **Three stages cached, because two dominate**: `embeddings.npy` (583 MB), `reduced5.npy` (the 5-d
+  clustering space) and `xy.npy` (the 2-d map, **909 s** — the slowest single stage, though it is
+  purely cosmetic for the app). The clustering D8 tunes is **21 s**. This is what made a
+  16-configuration full-scale sweep take under 5 minutes.
+- **Web app gained a fourth page**, "Topics around Paul" (`scripts/mops_app/pages/topics.py` +
+  `topics_data.py`, streamlit-free so notebooks can reuse it). It aggregates from `docs.parquet`
+  rather than the precomputed tables, because user filters must apply before counting;
+  `check_mops_app.py` asserts the unfiltered result reproduces `topics_over_time.parquet`. The page
+  states the outlier share prominently rather than burying it.
+- **`scripts/6_paul-topics.ipynb` added** — the exploration entry point, built around the two
+  questions the model actually gets asked: the **relative topic distribution over time** (§7–8) and
+  **how it differs across subsets** (§9–12: tier, language, discipline, confession). It calls
+  `mops_app.topics_data` rather than reimplementing, so the notebook and the app cannot disagree,
+  and it fits nothing (D11). It computes **no p-values**: the documents are overlapping ±10-token
+  windows and not independent, so the notebook reports distances as ordinals and says so. All 37
+  cells execute clean.
+- **`topics_data.py` gained the subset-comparison layer** the notebook needs: `outlier_shares`,
+  `subset_shares`, `diff_from_reference`, `trends_by_subset`, `trajectory_gap`,
+  `distribution_distance` (Jensen–Shannon / total variation / cosine), `distance_over_time` (per
+  bin, with a `min_docs` noise floor). Two invariants are pinned in `check_mops_app.py` because
+  both were violated by a real bug: `share_modelled` must **omit** the outlier topic (it was being
+  divided by a total that excludes it, giving 1.28 and column sums of 2.28 — a plot would have
+  shown that silently), and a distribution's distance from itself must be exactly 0. Verified by a
+  negative control that re-introduces the bug and confirms the guard fails.
+- **The outlier share varies by subset and that is a confound**: 62.0% for tier A, 59.1% for German,
+  56.2% overall, 53.5% for tier C. Since `share_modelled` divides by the *clustered* documents, two
+  subsets can differ in every topic share through the normalisation alone. Any subset comparison
+  should use `metric="share"` and report the outlier share beside it.
+
 **2026-10-15 — web app rebuilt from the notebook: `scripts/mops_jstor.py` (`/mops/`)**
 
 - Ported the "Temporal lineplots" section of `scripts/5_tokens-analysis.ipynb` into a

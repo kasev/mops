@@ -11,15 +11,47 @@ mops_jstor.py            entry point (streamlit run target, wired into mops.serv
 prepare_jstor_app_data.py  one-off: hits_nlp.parquet -> tokens.parquet
 mops_app/
   data.py                loaders, filters, temporal aggregation — NO streamlit
-  cache.py               st.cache_data wrappers around data.py
+  topics_data.py         topic-model loaders, aggregation, subset comparison — NO streamlit
+  cache.py               st.cache_data wrappers around both
   plots.py               matplotlib port of the notebook's plot_timebins + plotly twin
   pages/
     temporal.py          "Temporal frequencies" page
     concordance.py       "Concordance browser" page
+    topics.py            "Topics around Paul" page (BERTopic artifacts)
 ```
 
-`data.py` and `plots.py` never import streamlit, so a notebook can reuse the exact
-functions the app renders (`from mops_app import data, plots`).
+`data.py`, `topics_data.py` and `plots.py` never import streamlit, so a notebook can
+reuse the exact functions the app renders (`from mops_app import data, topics_data, plots`).
+
+The topics page reads artifacts fitted by `scripts/fit_paul_topics.py`; the design record
+and the limitations are **`TOPICS.md` at the repo root — read it before quoting a topic
+number**. The page aggregates from `docs.parquet` rather than from the precomputed tables,
+because the user's filters must be applied before counting; `check_mops_app.py` asserts the
+unfiltered result reproduces `topics_over_time.parquet`, which is the fit's own independent
+statement of the same quantity.
+
+### `topics_data.py` — what it offers
+
+Beyond loading (`load_docs`, `load_topics_info`, `load_report`, …) and per-page aggregation
+(`topic_sizes`, `topic_trends`, `topic_by_class`), it carries the **subset-comparison** layer
+`6_paul-topics.ipynb` is built on:
+
+| function | question it answers |
+| --- | --- |
+| `filter_docs` | the same filters as `data.filter_tokens`, for the fitted documents |
+| `outlier_shares` | how much of each subset is unclustered — a confound, not just a statistic |
+| `subset_shares` | each topic's share **within** each subset (topics × subsets) |
+| `diff_from_reference` | that table minus one reference column |
+| `trends_by_subset` | subset × bin × topic, in long form |
+| `trajectory_gap` | how far apart two subsets' trajectories are for one topic |
+| `distribution_distance` | one distance per subset (Jensen–Shannon / total variation / cosine) |
+| `distance_over_time` | the same, per bin, with a `min_docs` noise floor |
+
+Two conventions in that layer are deliberate and are pinned by `check_mops_app.py`:
+`share_modelled` **omits** the outlier topic (it is not one of the clustered documents, so it
+has no share of them — including it produced a bogus 1.28 during development), and the
+distances are **descriptive only**. The documents are overlapping windows and not independent
+draws, so no significance test belongs on these numbers.
 
 ## Run locally
 

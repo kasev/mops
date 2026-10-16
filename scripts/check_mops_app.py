@@ -26,6 +26,7 @@ PAGES = {
     "entry point (About)": "import mops_jstor",
     "Temporal frequencies": "from mops_app.pages import temporal; temporal.render()",
     "Concordance browser": "from mops_app.pages import concordance; concordance.render()",
+    "Topics around Paul": "from mops_app.pages import topics; topics.render()",
 }
 
 #: The notebook's recorded output for jewish/judaism/jew, bidecades, English only,
@@ -163,11 +164,164 @@ def check_edge_cases() -> bool:
     return ok
 
 
+def check_topics() -> bool:
+    """Check the topics layer against the fitted artifacts.
+
+    Skips cleanly when the model has not been fitted, so this file stays a smoke
+    test for the app rather than a requirement to have run an 11-minute fit.
+
+    Two invariants, chosen because they are the ones a refactor would break
+    silently:
+
+    * the page's own aggregation must reproduce the precomputed
+      `topics_over_time.parquet` when no filters are applied — that file is the
+      independent statement of the same quantity, produced inside the fit;
+    * every share column must respect its denominator (share sums to 1 within a
+      bin; share_modelled to 1 over the non-outlier topics), because a wrong
+      denominator is invisible in a plot and fatal to a claim.
+    """
+    from mops_app import topics_data as td
+
+    if not td.is_available(td.TOPIC_RUN):
+        print("skip  topic model not fitted (run scripts/fit_paul_topics.py)")
+        return True
+
+    docs = td.load_docs()
+    info = td.load_topics_info()
+    report = td.load_report()
+    ok = True
+
+    if len(docs) != report["documents"]["fitted"]:
+        ok = False
+        print(f"FAIL  docs rows {len(docs):,} != report {report['documents']['fitted']:,}")
+
+    # 1. recomputed vs precomputed, unfiltered
+    pre = td.load_topics_over_time()
+    mine = td.topic_trends(docs, bin_length=report["topics"]["bin_length"],
+                           metric="share")
+    mine = mine.reindex(pre["bin"].unique())
+    for _, row in pre[pre["topic"] != td.OUTLIER_TOPIC].iterrows():
+        got = float(mine.loc[row["bin"], row["topic"]]) if row["topic"] in mine.columns else 0.0
+        if abs(got - float(row["share"])) > 1e-6:
+            ok = False
+            print(f"FAIL  {row['bin']} topic {row['topic']}: recomputed {got:.6f} "
+                  f"vs precomputed {row['share']:.6f}")
+            break
+    print("ok    topics: recomputed trends match topics_over_time.parquet" if ok
+          else "FAILED topics trends")
+
+    # 2. denominators
+    for metric in td.TOPIC_METRICS:
+        m = td.topic_trends(docs, bin_length=report["topics"]["bin_length"], metric=metric)
+        if metric == "count":
+            continue
+        # `share` sums to 1 over everything including the outlier topic;
+        # `share_modelled` sums to 1 over the topics it returns (the outlier topic
+        # is omitted there, because it has no share of the clustered documents).
+        sums = m.sum(axis=1)
+        if not (abs(sums - 1.0) < 1e-6).all():
+            ok = False
+            print(f"FAIL  metric {metric}: bin sums {list(sums.round(6))}")
+    print("ok    topics: share and share_modelled sum to 1 per bin" if ok
+          else "FAILED topics denominators")
+
+    # 3. the page's labels must describe every topic the docs use
+    unknown = set(docs["topic"].unique()) - set(info["Topic"])
+    if unknown:
+        ok = False
+        print(f"FAIL  topics in docs.parquet missing from topics_info: {sorted(unknown)[:5]}")
+    else:
+        print("ok    topics: every document topic has a label row")
+
+    # 4. outlier share must be the one the record quotes (32.9% is not a bug to smooth over).
+    #    The report rounds to 4 decimals, so compare at that precision -- a tighter
+    #    tolerance fails on values that print identically.
+    got = float((docs["topic"] == td.OUTLIER_TOPIC).mean())
+    want = float(report["topics"]["outlier_share"])
+    if abs(got - want) > 5e-5:
+        ok = False
+        print(f"FAIL  outlier share {got:.6f} != report {want:.6f}")
+    else:
+        print(f"ok    topics: outlier share {got:.1%} matches the report")
+    return ok
+
+
+def check_topics_comparison() -> bool:
+    """Guard the subset-comparison layer used by `6_paul-topics.ipynb`.
+
+    Three invariants, all of which were violated by a real bug during development:
+
+    1. **The outlier topic must not appear under `share_modelled`.** It was being
+       divided by a total that *excludes* it, yielding 1.28 for the outlier row and
+       column sums of 2.28 — a number that is not a share of anything, and one that
+       a plot would have shown without any error. Caught by checking the sums.
+    2. **A distribution's distance from itself is exactly 0.** An off-by-one in the
+       topic alignment (e.g. comparing non-overlapping supports) shows up here and
+       almost nowhere else.
+    3. **Per-bin distances stay in range.** Jensen–Shannon is bounded by 1 with
+       `base=2`; a value outside [0, 1] means the vectors were not normalised.
+    """
+    from mops_app import topics_data as td
+
+    if not td.is_available(td.TOPIC_RUN):
+        print("skip  topic comparison checks (model not fitted)")
+        return True
+
+    docs = td.load_docs()
+    subsets = {"overall": docs,
+               "tier A": td.filter_docs(docs, tiers=["A"]),
+               "English": td.filter_docs(docs, languages=["eng", "en"])}
+    ok = True
+
+    # 1. the outlier topic has no share of the clustered documents
+    for metric, want_outlier in [("share", True), ("share_modelled", False),
+                                 ("count", True)]:
+        shares = td.subset_shares(subsets, metric=metric)
+        present = td.OUTLIER_TOPIC in shares.index
+        if present != want_outlier:
+            ok = False
+            print(f"FAIL  subset_shares({metric}): outlier row present={present}, "
+                  f"expected {want_outlier}")
+        if metric != "count":
+            sums = shares.sum(axis=0)
+            if not (abs(sums - 1.0) < 1e-6).all():
+                ok = False
+                print(f"FAIL  subset_shares({metric}): column sums "
+                      f"{list(sums.round(4))}")
+    print("ok    topics: outlier topic excluded from share_modelled, shares sum to 1"
+          if ok else "FAILED subset_shares invariants")
+
+    # 2. distance from itself is 0
+    same = td.subset_shares({"a": docs, "b": docs}, metric="share")
+    for method in td.DISTANCES:
+        d = float(td.distribution_distance(same, "a", method=method)["distance"].iloc[0])
+        if abs(d) > 1e-12:
+            ok = False
+            print(f"FAIL  {method}: distance from an identical subset is {d!r}, not 0")
+
+    # 3. per-bin distances in range
+    trends = td.trends_by_subset(subsets, metric="share")
+    counts = td.trends_by_subset(subsets, metric="count")
+    per_bin = counts.groupby(["subset", "bin"])["value"].sum()
+    dist_time = td.distance_over_time(trends, "overall", method="js",
+                                      min_docs=100, docs_per_bin=per_bin)
+    vals = dist_time["distance"].dropna()
+    if vals.empty or not ((vals >= 0) & (vals <= 1)).all():
+        ok = False
+        print(f"FAIL  distance_over_time: values outside [0, 1] "
+              f"(min {vals.min() if len(vals) else 'n/a'}, max {vals.max() if len(vals) else 'n/a'})")
+    else:
+        print(f"ok    topics: js distance in range over {len(vals)} bins, "
+              f"identical subset = 0, masked by the min_docs floor")
+    return ok
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--pages", action="store_true", help="skip the parity check")
     ap.add_argument("--no-edge", action="store_true", help="skip the empty-bin/renderer checks")
+    ap.add_argument("--no-topics", action="store_true", help="skip the topic-model checks")
     args = ap.parse_args(argv)
 
     ok = check_pages()
@@ -175,6 +329,9 @@ def main(argv: list[str] | None = None) -> int:
         ok = check_edge_cases() and ok
     if not args.pages:
         ok = check_parity() and ok
+    if not args.no_topics:
+        ok = check_topics() and ok
+        ok = check_topics_comparison() and ok
     print("\nALL OK" if ok else "\nFAILURES — see above")
     return 0 if ok else 1
 

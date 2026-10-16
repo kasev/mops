@@ -10,6 +10,7 @@ import pandas as pd
 import streamlit as st
 
 from . import data
+from . import topics_data as td
 
 
 @st.cache_data(show_spinner="Loading the concordance table …")
@@ -61,3 +62,23 @@ def concordance(filters: dict, mode: str, query: str) -> pd.DataFrame:
     # alone, which keeps that path from pulling in the whole tokens table.
     tok = tokens() if mode == "lemma" else data.load_tokens(columns=data.JOIN_KEY)
     return data.search_concordance(tok, hits(), query=query, mode=mode, filters=filters)
+
+
+# --- topic model (scripts/fit_paul_topics.py; see TOPICS.md) -------------------
+
+@st.cache_data(show_spinner="Loading the topic model …")
+def topic_docs(run: str = td.TOPIC_RUN) -> pd.DataFrame:
+    """Per-document topics + 2-D map coordinates (`docs.parquet`)."""
+    return td.load_docs(run=run)
+
+
+@st.cache_data(show_spinner=False)
+def topics_info(run: str = td.TOPIC_RUN) -> pd.DataFrame:
+    """Topic table with the c-TF-IDF terms (`topics_info.parquet`)."""
+    return td.load_topics_info(run=run)
+
+
+@st.cache_data(show_spinner=False)
+def topic_report(run: str = td.TOPIC_RUN) -> dict:
+    """The run's provenance record (parameters, versions, counts)."""
+    return td.load_report(run=run)

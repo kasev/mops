@@ -1,0 +1,26 @@
+# Topic-modelling stack — optional, installed separately from the app/notebook baseline.
+#
+# Used by scripts/fit_paul_topics.py and scripts/6_paul-topics.ipynb.
+# Rationale, evidence and pinned versions are documented in TOPICS.md (section 5).
+#
+# INSTALL ORDER MATTERS. Install torch first, from the CUDA index: doing it in a single
+# `pip install -r` against PyPI pulls a different torch (and a whole CUDA-13 nvidia-* stack,
+# ~4 GB) and upgrades packages the streamlit app depends on.
+#
+#   pip install "torch==2.10.0" --index-url https://download.pytorch.org/whl/cu128
+#   pip install -r requirements-topics.txt
+#
+# torch is deliberately NOT listed below: it needs a special index URL, and it is already
+# satisfied by the step above.
+#
+bertopic==0.17.4
+sentence-transformers==5.2.0
+transformers==4.57.6
+huggingface-hub==0.36.0
+tokenizers==0.22.2
+safetensors==0.7.0
+hdbscan==0.8.44
+
+# Guard: numba 0.61.0 (pulled in by umap-learn 0.5.7, used by the app) requires numpy<2.1.
+# Do not let this stack upgrade numpy.
+numpy<2
