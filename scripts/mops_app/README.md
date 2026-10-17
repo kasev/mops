@@ -53,6 +53,60 @@ has no share of them — including it produced a bogus 1.28 during development),
 distances are **descriptive only**. The documents are overlapping windows and not independent
 draws, so no significance test belongs on these numbers.
 
+### The outlier topic is grey, and the control for it is display-only
+
+`topics_data.OUTLIER_COLOR` reserves one grey for topic `-1`, used by the page and by
+`6_paul-topics.ipynb` (via `topic_color_map`). It is a *different kind of thing*, not one more
+topic, and it is never silently hidden: it is the largest single group in the corpus.
+
+**The sidebar's outlier control cannot change a number.** It used to: excluding outliers fed
+into the filter and `share` was then computed over the survivors, which *renormalised* the
+series — the same topic in the same subset moved from 0.0228 to 0.0600 — while the axis label
+still claimed "outliers included". Two fixes followed:
+
+* display is now separate from the denominator — hiding removes the row from the figures only;
+* it turned out to be **redundant anyway**: `share` computed after dropping outliers is
+  *exactly* `share_modelled`, which is a selectable metric where the label can be honest about
+  its denominator. `check_mops_app.py` pins both facts.
+
+To see the composition of the clustered part, change the **metric** instead:
+
+| metric | denominator |
+| --- | --- |
+| `share` | all documents in the bin (outlier topic included) |
+| `share_modelled` | the bin's *clustered* documents only |
+| `count` | none — raw documents |
+
+The two share metrics answer different questions and **can move in opposite directions**,
+because `share_modelled` removes the outlier topic from the denominator and therefore rises
+whenever the outlier share falls.
+
+### "Over time" tab controls
+
+The temporal tab is built for following *specific* topics rather than the largest ones:
+
+| control | what it does |
+| --- | --- |
+| **Pick topics (checkboxes)** | one checkbox per topic in the subset, largest first, filled column-wise so each column reads in size order. Selection is keyed per topic, so it survives a change of metric or year window |
+| **Largest N by size** | the older slider, for a quick overview |
+| **Metric** | see the table above |
+| **Volume backdrop** | documents per bin as faint bars on the right axis — the corpus grows ~8×, so a flat share is a *rising* count, and a thin bin deserves caution |
+| **Log y-axis** | for small topics whose shape is the point |
+
+The plotted values, the per-bin document counts and a CSV download sit in an expander under the
+figure: a share is only readable against the number of documents behind it.
+
+**The outlier goes on its own axis when it would otherwise hide everything.** It peaks at ~0.60
+against ~0.07 for the largest real topic (8.6×), so on a shared axis it pinned the top of the range
+and the selected topics collapsed into a flat row near zero — a figure that showed nothing at all.
+`plotly_topic_trends(on_secondary=[...])` now draws it against a labelled right-hand axis, and the
+primary axis auto-scales to the topics asked for. The page decides automatically, with a 3×
+threshold, and prints a caption saying the two scales are not comparable — an unlabelled dual axis
+is a way to make a small number look like a large one.
+
+With a secondary axis in use the volume backdrop moves to a third, unlabelled axis, so it does not
+compete for the right-hand scale.
+
 ## Run locally
 
 ```bash

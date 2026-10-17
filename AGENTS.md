@@ -95,6 +95,37 @@
   56.2% overall, 53.5% for tier C. Since `share_modelled` divides by the *clustered* documents, two
   subsets can differ in every topic share through the normalisation alone. Any subset comparison
   should use `metric="share"` and report the outlier share beside it.
+- **The outlier topic is drawn grey, and the control for it is display-only** (the user's call:
+  keep it grey as *uncertain* rather than hide it). `topics_data.OUTLIER_COLOR` reserves one grey for
+  `-1`, used by both the page and the notebook via `topic_color_map`. This replaced a **silently
+  wrong control**: the sidebar's "include outliers" fed into the *filter* and `share` was then
+  computed over the survivors, so hiding outliers renormalised the series — the same topic in the
+  same subset went 0.0228 → 0.0600 — while the axis still said "outliers included". It was also
+  **redundant**: `share` after dropping outliers is exactly `share_modelled`, which is already a
+  metric with an honest label. Pinned by `check_mops_app.py` (numbers identical when hiding;
+  share-with-dropped == share_modelled).
+- **Keeping the grey outlier on a shared axis made the plot unreadable — caught by the user.** It
+  peaks at **8.6×** the largest real topic (0.60 vs 0.07), so it pinned the top of the y-range and
+  every selected topic collapsed into a flat row of dots near zero: whatever you ticked, nothing was
+  visible. Fix: `plots.plotly_topic_trends(on_secondary=[...])` draws those topics against a
+  **right-hand axis** (labelled, and the page adds a caption warning the scales are not comparable),
+  which lets the primary axis auto-scale to the topics asked for; the volume backdrop moves to a
+  third, unlabelled axis rather than competing for the right one. The page applies it automatically
+  when the outlier peak exceeds 3× the largest selected topic. The notebook uses a separate panel
+  instead (two figures are easier to read than two y-scales). Guarded by a check that asserts the
+  outlier leaves the primary axis — verified by a negative control that ignores `on_secondary` and
+  confirms the guard fails.
+- **The temporal tab is built for following specific topics**: a **checkbox per topic**
+  (`_topic_picker`, largest first, filled column-wise so each column reads in size order, keyed per
+  topic so the selection survives a metric change), a **volume backdrop** of documents per bin
+  (right axis — the corpus grows ~8×, so a flat share is a rising count), a log-y toggle, and the
+  plotted values + per-bin counts + CSV in an expander. The figure builder lives in
+  `plots.plotly_topic_trends` (streamlit-free, so it is testable) rather than inline in the page.
+  `check_mops_app.py` asserts the outlier line is *uniquely* grey and that the backdrop appears only
+  when asked; the checkbox/radio/toggle behaviour was verified by driving the page through
+  streamlit's `AppTest` interactively (unticking topics removes exactly those lines, the mode
+  switch, volume/log toggles, the outlier-hide radio and every metric all render without
+  exceptions) — that interaction script is not committed, only the figure invariants are.
 
 **2026-10-15 — web app rebuilt from the notebook: `scripts/mops_jstor.py` (`/mops/`)**
 

@@ -12,6 +12,8 @@ reshape anything to switch renderer.
 """
 from __future__ import annotations
 
+from collections.abc import Sequence
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -192,4 +194,127 @@ def plotly_timebins(result: TemporalResult, *, log_y: bool = False,
         margin=dict(l=60, r=60, t=60, b=60),
         plot_bgcolor="white",
     )
+    return fig
+
+
+def plotly_topic_trends(matrix: pd.DataFrame, labels: dict[int, str], *,
+                        metric_label: str, colors: dict[str, str] | None = None,
+                        bin_docs: pd.Series | None = None, log_y: bool = False,
+                        on_secondary: Sequence[int] = (),
+                        secondary_axis_title: str | None = None,
+                        height: int = 560, title: str | None = None) -> go.Figure:
+    """Topic share over time, one line per topic, optionally over a volume backdrop.
+
+    The topic analogue of `plotly_timebins`, and it keeps the same two devices that
+    make that figure readable:
+
+    * **the volume backdrop** — documents per bin, as faint bars on a second axis.
+      For topics this matters more than for word frequencies: the corpus grows ~8x
+      across the century, so a line that stays flat in share is a *rising* count, and
+      a bin with 200 documents cannot support the same reading as one with 50,000.
+    * **exact hover values**, including the bin's document count, so a spike can be
+      checked against how much data is behind it.
+
+    Parameters
+    ----------
+    matrix, labels, colors
+        `matrix` is bins x topics (index = bin label, in the order they should be
+        drawn); `labels` maps topic id -> rendered label (see
+        `topics_data.topic_label`); `colors` maps *rendered label* -> colour, which is
+        how the outlier topic is drawn grey without this module importing
+        `topics_data`.
+    on_secondary
+        Topic ids to draw against a **right-hand axis** instead of the left one. This
+        exists because of a measured problem, not for decoration: the outlier topic
+        holds ~56% of the corpus while a real topic holds ~3%, so on a shared axis the
+        outlier pins the top of the range and every other line is flattened into a row
+        of dots along zero — the selection becomes invisible. Giving it its own axis
+        lets the primary axis auto-scale to the topics that were asked for, while the
+        outlier stays on screen and readable. The volume backdrop then moves to a third
+        axis (unlabelled) rather than competing for the right one.
+
+    Attention
+        A secondary axis means two scales in one frame. The axis title says so, and the
+        caller is expected to say so too — an unlabelled dual axis is a way to make a
+        small number look like a large one.
+    """
+    fig = go.Figure()
+
+    secondary_ids = [t for t in matrix.columns if int(t) in set(on_secondary)]
+    # A secondary axis is only meaningful if something is left on the primary one.
+    primary_ids = [t for t in matrix.columns if t not in secondary_ids]
+    use_secondary = bool(secondary_ids) and bool(primary_ids)
+    if not use_secondary:
+        secondary_ids = []
+
+    # Volume backdrop first, so lines draw on top. It needs its own axis whichever
+    # arrangement we are in: documents per bin run to ~130,000 against shares of ~0.05.
+    volume_axis = "y2"
+    if use_secondary and bin_docs is not None:
+        volume_axis = "y3"
+    if bin_docs is not None:
+        fig.add_trace(go.Bar(
+            x=[str(b) for b in matrix.index],
+            y=[float(bin_docs.get(b, 0)) for b in matrix.index],
+            name="documents in bin",
+            yaxis=volume_axis,
+            marker_color="rgba(150,150,150,0.30)",
+            hovertemplate="%{x}<br>%{y:,} documents in this bin<extra></extra>",
+        ))
+
+    counts = ([float(bin_docs.get(b, 0)) for b in matrix.index]
+              if bin_docs is not None else None)
+    customdata = np.array([[c] for c in counts], dtype=float) if counts else None
+
+    for i, topic in enumerate(matrix.columns):
+        label = labels.get(int(topic), f"t{topic}")
+        color = (colors or {}).get(label, PALETTE[i % len(PALETTE)])
+        fig.add_trace(go.Scatter(
+            x=[str(b) for b in matrix.index],
+            y=matrix[topic].astype(float).values,
+            name=label,
+            mode="lines+markers",
+            yaxis="y2" if topic in secondary_ids else "y",
+            line=dict(width=2, color=color),
+            marker=dict(size=7),
+            fill="tozeroy",
+            fillcolor=_rgba(color, 0.05),
+            customdata=customdata,
+            hovertemplate=(f"<b>{label}</b><br>%{{x}}<br>{metric_label}: %{{y:.4g}}"
+                           + ("<br>of %{customdata[0]:,.0f} documents in bin"
+                              if customdata is not None else "")
+                           + "<extra></extra>"),
+        ))
+
+    layout: dict = dict(
+        title=title or "Topic share over time",
+        height=height,
+        hovermode="x unified",
+        xaxis=dict(title="", showspikes=True, spikemode="across", categoryorder="array",
+                   categoryarray=[str(b) for b in matrix.index]),
+        yaxis=dict(title=metric_label, type="log" if log_y else "linear"),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.25, x=0),
+        margin=dict(l=60, r=60, t=60, b=60),
+        plot_bgcolor="white",
+    )
+    if use_secondary:
+        # Right axis: the separated topics. Labelled, because it is a different scale.
+        names = ", ".join(labels.get(int(t), f"t{t}") for t in secondary_ids)
+        layout["yaxis2"] = dict(
+            title=secondary_axis_title or f"{metric_label} — {names}",
+            overlaying="y", side="right", showgrid=False,
+            type="log" if log_y else "linear")
+        # Third axis: the backdrop, deliberately untitled and unlabelled — it is a
+        # visual density cue, and its numbers are in the hover.
+        layout["yaxis3"] = dict(
+            overlaying="y", side="right", showgrid=False, showticklabels=False,
+            range=[0, float(bin_docs.max()) * 3] if bin_docs is not None and len(bin_docs)
+            else [0, 1])
+    else:
+        layout["yaxis2"] = dict(
+            title="documents in bin", overlaying="y", side="right", showgrid=False,
+            range=[0, float(bin_docs.max()) * 3] if bin_docs is not None and len(bin_docs)
+            else [0, 1],
+            showticklabels=bin_docs is not None)
+    fig.update_layout(**layout)
     return fig

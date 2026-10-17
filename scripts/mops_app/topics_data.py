@@ -71,6 +71,44 @@ TOPIC_CLASS_TYPES = {
 
 OUTLIER_TOPIC = -1
 
+#: The outlier topic is drawn in a neutral grey rather than a categorical colour.
+#: Two reasons, and the second is the important one:
+#:
+#: 1. it is not a topic, so it should not consume a slot in the categorical palette;
+#: 2. it is **always visible**. Hiding it, or folding it into a real topic, is what
+#:    would let a reader forget that more than half the corpus is unclustered. Grey
+#:    says "measured, but of a different kind" — which is exactly its status (D9).
+OUTLIER_COLOR = "#9ca3af"
+
+#: Plotly's default qualitative palette, copied so this module needs no plotly import
+#: (it stays importable from a bare pandas/numpy kernel).
+CATEGORICAL_COLORS = (
+    "#636efa", "#ef553b", "#00cc96", "#ab63fa", "#ffa15a", "#19d3f3",
+    "#ff6692", "#b6e880", "#ff97ff", "#fecb52",
+)
+
+
+def is_outlier(label: str) -> bool:
+    """Whether a *rendered* topic label (see `topic_label`) denotes the outlier topic."""
+    return label.startswith("Outlier")
+
+
+def topic_color_map(labels: list[str]) -> dict[str, str]:
+    """Colour per rendered label, with the outlier topic grey and topics categorical.
+
+    Categorical colours are assigned in the order given, skipping the outlier, so the
+    same palette position always means the same relative rank and a reader can tell
+    the outlier apart at a glance in any figure.
+    """
+    out, i = {}, 0
+    for label in labels:
+        if is_outlier(label):
+            out[label] = OUTLIER_COLOR
+        else:
+            out[label] = CATEGORICAL_COLORS[i % len(CATEGORICAL_COLORS)]
+            i += 1
+    return out
+
 
 def paths_for(run: str = TOPIC_RUN) -> dict[str, Path]:
     """Artifact paths for one fitted run (mirrors `fit_paul_topics.paths_for`).

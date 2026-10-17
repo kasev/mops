@@ -89,7 +89,7 @@ Paul over time, and the quoted lines behind those counts.
 | **About** | what the app shows and how to read the tiers, flags and normalisation |
 | **Temporal frequencies** | one line per word per time bin, with bin length, year window, metric (raw / per-1,000 concordances / notebook's `×20` / share) and the corpus subset (tier, language, discipline, confession, journal, patterns, flags) all under your control |
 | **Concordance browser** | the collisions themselves — search by context lemma, by KWIC text, or by scan pattern; each hit shows its sentence and the article's own wording |
-| **Topics around Paul** | the BERTopic model over the same windows: which lexical configurations recur, how their shares move over time, and how they differ between subsets. States the outlier share rather than hiding it |
+| **Topics around Paul** | the BERTopic model over the same windows: which lexical configurations recur, how their shares move over time, and how they differ between subsets. Tick the topics you want to follow; the outlier topic is always drawn in grey, and never hidden silently |
 
 The notebook equivalent of the first page is the "Temporal lineplots" section of
 `5_tokens-analysis.ipynb`; the app's implementation is checked against that notebook's
