@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"dataWrangler.outputRenderer.enabled": false,
+		"dataWrangler.outputRenderer.enabledTypes": {
+			"pandas.core.frame.DataFrame": false,
+			"pandas.DataFrame": false,
+			"pandas.core.series.Series": false,
+			"pandas.Series": false,
+			"numpy.ndarray": false,
+			"builtins.list": false,
+			"builtins.dict": false,
+			"torch.Tensor": false,
+			"tensorflow.python.framework.ops.EagerTensor": false,
+			"xarray.core.dataarray.DataArray": false,
+			"polars.dataframe.frame.DataFrame": false,
+			"polars.series.series.Series": false,
+			"pyspark.sql.dataframe.DataFrame": false,
+			"pyspark.sql.connect.dataframe.DataFrame": false
+		}
+	}
+}

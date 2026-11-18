@@ -236,3 +236,10 @@ One gap is already solved: the missing `data/metadata_rich_df.json` is `data/con
 
 The `colab_*.ipynb` notebooks also link to `https://github.com/kasev/mops/raw/master/data/…pickle`,
 which now 404s for the same reason.
+
+## Repository housekeeping
+
+IDE artifacts (`.idea/`, `*.iml`) and Jupyter checkpoints (`.ipynb_checkpoints/`)
+are not tracked. Bulk data and model directories (`large_files/`, `large_data/`)
+are never committed; keep large inputs and outputs there. See the
+[organizer](https://github.com/kasev/organizer) workspace for the shared workflow.
